@@ -1,4 +1,4 @@
-# EduPredict
+﻿# MLOps EduPredict
 
 Plateforme intelligente de prediction du risque
 d'abandon universitaire avec une approche MLOps.
