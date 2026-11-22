@@ -1,0 +1,31 @@
+data:
+  raw_path: data/raw/students.csv
+  target: Target
+  test_size: 0.15
+  validation_size: 0.15
+  random_state: 42
+
+features:
+  numerical:
+    - Admission grade
+    - Previous qualification (grade)
+    - Curricular units 1st sem (credited)
+    - Curricular units 1st sem (enrolled)
+    - Curricular units 1st sem (evaluations)
+    - Curricular units 1st sem (approved)
+    - Curricular units 1st sem (grade)
+    - Curricular units 1st sem (without evaluations)
+
+  categorical:
+    - Course
+    - Application mode
+    - Application order
+    - Previous qualification
+    - Daytime/evening attendance
+
+  audit_only:
+    - Gender
+    - Age at enrollment
+
+validation:
+  min_f1_macro: 0.70
