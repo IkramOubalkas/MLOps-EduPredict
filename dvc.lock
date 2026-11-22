@@ -1,0 +1,53 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python src/preprocess.py
+    deps:
+    - path: data/raw/students.csv
+      hash: md5
+      md5: ee29c9ee9ea60654b5bb0a161c0a473d
+      size: 533230
+    - path: src/preprocess.py
+      hash: md5
+      md5: ebe08884d6d1aaf998ff046379db4493
+      size: 1902
+    params:
+      params.yaml:
+        data:
+          raw_path: data/raw/students.csv
+          target: Target
+          test_size: 0.15
+          validation_size: 0.15
+          random_state: 42
+        features:
+          numerical:
+          - Admission grade
+          - Previous qualification (grade)
+          - Curricular units 1st sem (credited)
+          - Curricular units 1st sem (enrolled)
+          - Curricular units 1st sem (evaluations)
+          - Curricular units 1st sem (approved)
+          - Curricular units 1st sem (grade)
+          - Curricular units 1st sem (without evaluations)
+          categorical:
+          - Course
+          - Application mode
+          - Application order
+          - Previous qualification
+          - Daytime/evening attendance
+          audit_only:
+          - Gender
+          - Age at enrollment
+    outs:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: f6ba6210d39f8f4bac3c3c65e8141a59
+      size: 37221
+    - path: data/processed/train.csv
+      hash: md5
+      md5: ac20f90f6a2d8351120b2a2ef2eb778b
+      size: 173262
+    - path: data/processed/val.csv
+      hash: md5
+      md5: 292e6b0fd6281a9817df4c576d2ee765
+      size: 37360
